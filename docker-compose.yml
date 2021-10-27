@@ -77,8 +77,6 @@ services:
 networks:
     sail:
         driver: bridge
-    default:
-        driver: default
 volumes:
     sailredis:
         driver: local
