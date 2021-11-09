@@ -16,3 +16,8 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+
+Route::prefix('/news')->group(function () {
+    Route::get("/", "App\Http\Controllers\NewsController@getList")->name('news_list');
+    Route::get("/{slug}", "App\Http\Controllers\NewsController@getDetails")->name('news_item');
+});

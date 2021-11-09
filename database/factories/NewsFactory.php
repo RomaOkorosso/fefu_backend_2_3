@@ -25,7 +25,7 @@ class NewsFactory extends Factory
             'description' => $this->faker->realTextBetween(100, 500),
             'text' => $this->faker->realTextBetween(500, 2000),
             'is_published' => $this->faker->boolean(70),
-            'published_at' => $this->faker->dateTimeBetween('-2 months'),
+            'published_at' => $this->faker->dateTimeBetween('-2 months', "+2 weeks"),
         ];
     }
 }
