@@ -20,7 +20,7 @@ class CreateNewsTable extends Migration
             $table->mediumText('description')->nullable();
             $table->text('text');
             $table->boolean('is_published');
-            $table->timestamp('published_at')->nullable();
+            $table->timestamp('published_at');
             $table->timestamps();
         });
     }
