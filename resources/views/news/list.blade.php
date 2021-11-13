@@ -7,7 +7,7 @@
     <h1 class="justify-center flex">Новости</h1>
     <div style="padding: 8px">
         @foreach($items as $item)
-            <a href="{{route('news_item', ['slug' => $item->slug])}}">{{ $item->title }}</a>
+            <a href="{{route('news_item', ['slug' => $item->slug])}}">{{ $item['title'] }}</a>
             <br>
             <p class="dark:text-gray-200">{{$item->published_at}}</p>
             @if(isset($item->description))
