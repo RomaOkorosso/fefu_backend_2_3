@@ -10,6 +10,6 @@ class NewsSeeder extends Seeder
     public function run()
     {
         News::query()->delete();
-        News::factory()->count(rand(15, 25))->create();
+        News::factory()->count(rand(20, 30))->create();
     }
 }
