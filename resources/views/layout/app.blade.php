@@ -406,6 +406,29 @@
                 vertical-align: center;
                 padding: 8px 4px 0 0;
             }
+
+            form {
+                display: table;
+                column-fill: auto;
+                margin: auto;
+
+
+            }
+
+            input:focus {
+                border: 3px solid #555;
+            }
+
+            input[type=button], input[type=submit], input[type=reset] {
+                background-color: #2a80de;
+                border: none;
+                color: white;
+                padding: 8px 12px;
+                text-decoration: none;
+                margin: 4px 2px;
+                cursor: pointer;
+            }
+
         }
     </style>
 
@@ -416,9 +439,19 @@
     </style>
     @stack('head')
 </head>
+<body class="antialiased">
+<header class="popover-header"
+        style="height: 6vh; background-color: #2e92ff">
+    <a class="header-element card-header-tabs" style="padding-left: 8px"
+       href="{{route('news_list')}}">Все новости</a>
+    <a class="header-element card-header-tabs" style="padding-left: 8px"
+       href="{{route('appeal')}}">Оставить отзыв</a>
+</header>
+
 @yield('content')
 
 <footer class="footer">
     <p class="dark:text-gray-500">© 2021 Roma Okorosso</p>
 </footer>
+</body>
 </html>

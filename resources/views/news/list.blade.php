@@ -3,7 +3,6 @@
     <title>Новости</title>
 </head>
 @section("content")
-    <body class="antialiased">
     <h1 class="justify-center flex">Новости</h1>
     <div style="padding: 8px">
         @foreach($items as $item)
@@ -19,5 +18,4 @@
     <div class="justify-center flex">
         {{ $items->links() }}
     </div>
-    </body>
 @endsection
