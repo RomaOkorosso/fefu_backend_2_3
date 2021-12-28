@@ -439,6 +439,7 @@
     </style>
     @stack('head')
 </head>
+
 <body class="antialiased">
 <header class="popover-header"
         style="height: 6vh; background-color: #2e92ff">
@@ -453,5 +454,6 @@
 <footer class="footer">
     <p class="dark:text-gray-500">© 2021 Roma Okorosso</p>
 </footer>
+
 </body>
 </html>

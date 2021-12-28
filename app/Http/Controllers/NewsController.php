@@ -15,8 +15,7 @@ class NewsController extends Controller
             ->orderByDesc("published_at")
             ->orderByDesc("id")
             ->paginate(5);
-        Log::info($items);
-        return view("news.list", compact("items"));
+        return view("news.list")->with(compact('items'));
     }
 
     public function getDetails($slug)
@@ -27,11 +26,10 @@ class NewsController extends Controller
             ->whereDate("published_at", "<=", "NOW()")
             ->where("is_published", true)
             ->first();
-        Log::info($item);
         if ($item === null) {
             abort(404);
         }
 
-        return view("news.detail", compact("item"));
+        return view("news.detail")->with(compact('item'));
     }
 }
