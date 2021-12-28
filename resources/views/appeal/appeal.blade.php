@@ -4,68 +4,117 @@
 
 @section('content')
 
-    @if ($success ?? false)
-        <div class="success-message">
-            <p>Отзыв успешно отпраален</p>
-        </div>
+    @if (empty($errors))
+        <div class="alert alert-success">Обращение отправленно</div>
     @endif
-
     <form action="{{ route('appeal') }}" method="POST">
         @csrf
         <div>
             <label for="name">Имя</label>
             <input
+                class="@error('name') is-invalid @enderror"
                 type="text"
                 name="name"
-                placeholder="Иван"
-                value="{{ request()->isMethod('post') ? old('name') : '' }}"
-                maxlength="20"
-                size="20"
+                placeholder="Роман"
+                value="{{ old('name') }}"
             />
+            @error('name')
+            <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
+        </div>
+        <div>
+            <label for="surname">Фамилия</label>
+            <input
+                class="@error('surname') is-invalid @enderror"
+                type="text"
+                name="surname"
+                placeholder="Затрутин"
+                value="{{ old('surname') }}"
+            />
+            @error('surname')
+            <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
+        </div>
+        <div>
+            <label for="patronymic">Отчество</label>
+            <input
+                class="@error('patronymic') is-invalid @enderror"
+                type="text"
+                name="patronymic"
+                placeholder="Сергеевич"
+                value="{{ old('patronymic') }}"
+            />
+            @error('patronymic')
+            <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
         </div>
         <div>
             <label for="phone">Телефон</label>
             <input
-                type="tel"
+                class="@error('phone') is-invalid @enderror"
+                type="text"
                 name="phone"
-                placeholder="+79991234567"
-                value="{{ request()->isMethod('post') ? old('phone') : '' }}"
-                maxlength="11"
-                size="11"
+                placeholder="+79876543210"
+                value="{{ old('phone') }}"
             />
+            @error('phone')
+            <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
         </div>
         <div>
-            <label for="email">Email</label>
+            <label for="email">Электронный адресс</label>
             <input
-                type="email"
+                class="@error('email') is-invalid @enderror"
+                type="text"
                 name="email"
-                placeholder="example@gmail.com"
-                value="{{ request()->isMethod('post') ? old('email') : '' }}"
-                maxlength="100"
-                size="30"
+                placeholder="example@mail.ru"
+                value="{{ old('email') }}"
             />
+            @error('email')
+            <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
+        </div>
+        <div>
+            <label for="age">Возраст</label>
+            <input
+                class="@error('age') is-invalid @enderror"
+                type="text"
+                name="age"
+                placeholder="20"
+                value="{{ old('age') }}"
+            />
+            @error('age')
+            <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
+        </div>
+        <div>
+            <label for="gender">Пол</label>
+            <select name="gender">
+
+                @foreach (array_keys($genders) as $gender)
+                    <option value="{{ $gender }}" {{ old('gender') == $gender ? 'selected' : '' }}>
+                        {{ $gender }}
+                    </option>
+                @endforeach
+            </select>
+            @error('gender')
+            <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
         </div>
         <div>
             <label for="message">Сообщение</label>
             <textarea
+                class="@error('message') is-invalid @enderror"
                 type="text"
                 name="message"
-                placeholder="Ваше обращение"
-                maxlength="100" rows="6"
-            >{{ request()->isMethod('post') ? old('message') : '' }}</textarea>
+                placeholder="У меня проблема..."
+                rows="6"
+            >{{ old('message') }}</textarea>
+            @error('message')
+            <p class="alert alert-danger">{{ $message }}</p>
+            @enderror
         </div>
         <input type="submit" value="Отправить"/>
     </form>
-
-
-    @if ($errors)
-        <div class="alert alert-danger">
-            <ul class="mb-0">
-                @foreach ($errors as $error)
-                    <li>{{ $error }}</li>
-                @endforeach
-            </ul>
-        </div>
-    @endif
 
 @endsection
