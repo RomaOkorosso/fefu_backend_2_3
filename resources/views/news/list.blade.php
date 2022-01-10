@@ -3,7 +3,7 @@
     <title>Новости</title>
 </head>
 @section("content")
-    <body class="antialiased">
+
     <h1 class="justify-center flex">Новости</h1>
     <div style="padding: 8px">
         @foreach($items as $obj)
@@ -12,6 +12,7 @@
             <p class="text-grey-light">{{$obj->published_at}}</p>
             @if(isset($obj->description))
                 <p>{{$obj->description}}</p>
+
             @endif
             <hr style="background: black; height:2px;"/>
         @endforeach
@@ -19,5 +20,5 @@
     <div class="justify-center flex">
         {{ $items->links() }}
     </div>
-    </body>
+
 @endsection

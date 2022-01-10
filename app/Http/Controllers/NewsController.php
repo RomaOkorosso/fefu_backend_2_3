@@ -15,7 +15,6 @@ class NewsController extends Controller
             ->orderByDesc("published_at")
             ->orderByDesc("id")
             ->paginate(5);
-
         return view("news.list")->with(compact('items'));
     }
 
