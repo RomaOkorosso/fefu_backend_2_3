@@ -12,6 +12,7 @@
         <div>
             <label for="name">Имя</label>
             <input
+
                 class="@error('name') is-invalid @enderror"
                 type="text"
                 name="name"
@@ -116,5 +117,4 @@
         </div>
         <input type="submit" value="Отправить"/>
     </form>
-
 @endsection
