@@ -428,7 +428,9 @@
                 margin: 4px 2px;
                 cursor: pointer;
             }
-
+            select {
+                background-color: #89d6ff;
+            }
         }
     </style>
 
