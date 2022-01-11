@@ -4,6 +4,7 @@
 
 @section('content')
 
+
     @if (empty($errors))
         <div class="alert alert-success">Обращение отправленно</div>
     @endif
@@ -116,5 +117,4 @@
         </div>
         <input type="submit" value="Отправить"/>
     </form>
-
 @endsection
