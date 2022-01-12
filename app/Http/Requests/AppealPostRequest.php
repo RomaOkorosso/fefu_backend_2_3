@@ -26,10 +26,8 @@ class AppealPostRequest extends FormRequest
                 function ($attribute, $value, $fail) {
                     $attribute = $this->attributes()[$attribute];
                     $value = str_replace(['(', ')', ' ', '-'], '', $value);
-                    if (!preg_match('/^(8|7|(\+7)){1}\d{10}/', $value))
+                    if (!preg_match('/^(8|7|(\+7)){1}\d{10}/$', $value))
                         return $fail($attribute . ' не соответствует формату российского телефона');
-                    if (strlen($value) != 11 + (1 && strchr($value, '+')))
-                        return $fail($attribute . ' должен иметь 11 цифр, допускаются скобки, тире и пробелы');
                 },
             ],
             'email' => ['nullable', 'required_without:phone', 'string', 'max:100', 'email:rfc,dns'],

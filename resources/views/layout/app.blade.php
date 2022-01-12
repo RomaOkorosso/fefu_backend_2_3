@@ -431,7 +431,6 @@
             select {
                 background-color: #89d6ff;
             }
-
         }
     </style>
 

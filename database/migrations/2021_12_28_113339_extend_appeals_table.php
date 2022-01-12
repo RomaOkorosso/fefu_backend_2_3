@@ -13,7 +13,7 @@ class ExtendAppealsTable extends Migration
             $table->string('surname', 40);
             $table->string('patronymic', 20)->nullable();
             $table->unsignedTinyInteger('age');
-            $table->enum('gender', Enums::Gender);
+            $table->enum('gender', array_values(Enums::Gender));
         });
     }
 
