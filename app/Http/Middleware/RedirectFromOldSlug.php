@@ -10,8 +10,7 @@ class RedirectFromOldSlug
 {
     public function handle(Request $request, Closure $next)
     {
-        $url = parse_url($request->url());
-        $route = array_key_exists('path', $url) ? $url['path'] : '';
+        $url = parse_url($request->url(), PHP_URL_PATH);
         $redirect = Redirect::where('old_slug', $route)
             ->orderByDesc('created_at')
             ->orderByDesc('id')
