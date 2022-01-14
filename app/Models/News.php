@@ -20,4 +20,21 @@ class News extends Model
             ]
         ];
     }
+
+    public function save(array $options = []): bool
+    {
+        if ($this->exists && $this->isDirty('slug')) {
+            $oldSlug = $this->getOriginal('slug');
+            $newSlug = $this->slug;
+
+            $fromOld = route('news_item', ['slug' => $oldSlug], false);
+            $toNew = route('news_item', ['slug' => $newSlug], false);
+
+            $redirect = new Redirect();
+            $redirect->old_slug = $fromOld;
+            $redirect->new_slug = $toNew;
+            $redirect->save();
+        }
+        return parent::save($options);
+    }
 }

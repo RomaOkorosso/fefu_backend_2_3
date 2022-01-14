@@ -4,7 +4,6 @@
 
 @section('content')
 
-
     @if (empty($errors))
         <div class="alert alert-success">Обращение отправленно</div>
     @endif
@@ -13,6 +12,7 @@
         <div>
             <label for="name">Имя</label>
             <input
+
                 class="@error('name') is-invalid @enderror"
                 type="text"
                 name="name"
